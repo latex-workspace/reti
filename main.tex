@@ -12,6 +12,7 @@
 \begin{document}
 \maketitle
 \tableofcontents
+\newpage
 
 \section{Introduzione ad Internet}
 \subsubsection*{Terminologia}
@@ -140,7 +141,7 @@ I mezzi sui quali veengono trasmessi i bit possono essere
 \subsubsection*{Il cavo}
 Tendenzialmente si usa la tecnologia a \underline{doppino intrecciato} o \underline{TP}. Questo è utilizzato per i cavi eternet
 \begin{center}
-	\framebox{\includegraphics[width = 0.95\textwidth]{Images/Doppino intrecciato.png }}
+	\tcbox[colback=white]{\includegraphics[width = 0.95\textwidth]{Images/Doppino intrecciato.png }}
 \end{center}
 I cavi vengono deniminati come segue
 \begin{center}
@@ -177,14 +178,14 @@ Nello scenario in cui una tratta debba essere divida da più utilizzatori, bisog
 	\item \underline{Divisione di frequenza (FDM)}:  ogni utente può utilizzare una data frequenza per quanto tempo gli pare. Ad esempio un canale radio, possiede una frequenza per quanto vuole
 	\item \underline{Divisione di tempo (TDM)}: ogni utente può utilizzare tutte le frequenze disponibili per un tempo limitato e definito a priori
 \end{itemize}
-\esercizio{Calcolo tempo con TDM}{
+\begin{esercizio}{Calcolo tempo con TDM}
 	Quanto tempo occore per trasmettere $ 640.000 $ bit dall'host $ A $ all'host $ B $ su una rete a \underline{commutazione di circuito}?
 	\begin{itemize}
 		\item Tutti i collegamenti presentano bit-rate di $ 1536 $ kbit/s
 		\item Ciascun collegament utilizza \underline{TDM} con 24 slot/secondo
 		\item Si impiegano 500 ms per stabilire la connessione
 	\end{itemize}
-}
+\end{esercizio}
 Risposta:
 \begin{itemize}
 	\item 24 slot/secondo quindi ogni utente utilizza 1/24 della potenza della rete. Ogni utente ha banda
@@ -219,7 +220,7 @@ Questo per certi versi è più efficace che la commutazione di circuito, però p
 	      \end{itemize}
 \end{itemize}
 
-\bigbox{
+\begin{tcolorbox}
 	La commutazione di pacchetto è l'opzione più utilizzata in quanto:
 	\begin{itemize}
 		\item E' ottima per spedire dati a raffica in maniera veloce, in quanto ogni host ha a disposizione tute le risorse
@@ -229,7 +230,8 @@ Questo per certi versi è più efficace che la commutazione di circuito, però p
 	\begin{itemize}
 		\item La commutazione di pacchetto potrebbe dare problemi di congestione, comportando ritardi e perdite di pacchetti
 	\end{itemize}
-}
+\end{tcolorbox}
+
 \section{Struttura internet}
 Internet possiede una struttura gerarchica:
 \begin{itemize}
@@ -242,7 +244,7 @@ Internet possiede una struttura gerarchica:
 	      \end{itemize}
 \end{itemize}
 \begin{center}
-	\framebox{\includegraphics[width=0.95\textwidth]{Images/ISP.png }}
+	\tcbox[colback=white]{\includegraphics[width=0.95\textwidth]{Images/ISP.png }}
 \end{center}
 \begin{itemize}
 	\item IXP: internet exchange point. Struttura di una terza azienda nella quale gli ISP di livello 2 comprano spazio per router per effettuare peering con altri ISP di livello 2.
@@ -251,7 +253,7 @@ Internet possiede una struttura gerarchica:
 \end{itemize}
 \subsection{Ritardo trasmissione commutazione di pacchetto}
 \begin{center}
-	\framebox{\includegraphics[width = 0.75\textwidth]{Images/Ritardi_commutazione.png }}
+	\tcbox[colback=white]{\includegraphics[width = 0.75\textwidth]{Images/Ritardi_commutazione.png }}
 \end{center}
 \begin{itemize}
 	\item Ritardo di elaborazione del pacchetto
@@ -440,7 +442,7 @@ In base all'applicazione che dobbiamo implementare, possiamo aver bisogno di div
 	\item \underline{Sensibilità al tempo}: devo garantire una latenza sufficientemente bassa?
 \end{itemize}
 \begin{center}
-	\framebox{\includegraphics[width = 0.98\textwidth]{Images/Requisiti trasporto.png }}
+	\tcbox[colback=white]{\includegraphics[width = 0.98\textwidth]{Images/Requisiti trasporto.png }}
 \end{center}
 \subsection{Protocollid i trasporto: TCP, UDP}
 \begin{minipage}[t]{0.48\textwidth}
@@ -460,10 +462,15 @@ In base all'applicazione che dobbiamo implementare, possiamo aver bisogno di div
 		\item \underline{Non offre}: setup della connessione e affidabilità. Non offre nemmeno tutto ciò che offre TCP
 	\end{itemize}
 \end{minipage}
-\textbox{UDP è un'interfaccia più snella con meno overhead, in quanto non deve  implementare controlli sui dati e offrendo meno features è più veloce e più semplice. Spesso utilizzata per servizi di streaming etc etc}
-\begin{center}
-	\framebox{\includegraphics[width = 0.98\textwidth]{Images/TCP UDP.png }}
-\end{center}
+
+\begin{tcolorbox}
+	UDP è un'interfaccia più snella con meno overhead, in quanto non deve  implementare controlli sui dati e offrendo meno features è più veloce e più semplice. Spesso utilizzata per servizi di streaming etc etc
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=white]
+	\includegraphics[width = 0.98\textwidth]{Images/TCP UDP.png }
+\end{tcolorbox}
+
 \subsection{Protocollo HTTP}
 \begin{itemize}
 	\item Client inizializza connessione usando \underline{TCP}
@@ -582,7 +589,7 @@ In HTTP vi sono due tipi di messaggi: \underline{richieste e risposte}
 \end{tikzpicture}
 
 \begin{center}
-	\framebox{\includegraphics[width = 0.97\textwidth]{Images/Messaggio HTTP.png }}
+	\tcbox[colback=white]{\includegraphics[width = 0.97\textwidth]{Images/Messaggio HTTP.png }}
 \end{center}
 Comandi:
 \begin{itemize}
@@ -715,205 +722,205 @@ Comandi:
 		            \begin{itemize}
 			            \item RESTORE contiene ultimo segmento del quale si è ricevuto ack che dovrebbe essere stato trasmesso prima di entrare in fast recovery
 			            \item Per ogni ack duplicato aumento CWND di 1
-			            \item Appeka arriva un ack superiore o uguale a RESTORE, riprendo a trasmettere con 
-                    \begin{itemize}
-                      \item CWND = CWND/2 + 3
-                      \item SSTRESH = CWND / 2
-                    \end{itemize}
+			            \item Appeka arriva un ack superiore o uguale a RESTORE, riprendo a trasmettere con
+			                  \begin{itemize}
+				                  \item CWND = CWND/2 + 3
+				                  \item SSTRESH = CWND / 2
+			                  \end{itemize}
 		            \end{itemize}
 	      \end{itemize}
-\item Alternative a Fast retransmit: 
-  \begin{itemize}
-    \item CUBIC:  simile  a fast retransmit su RTT bassi. invece che dimezzare CWND fa CWND = 0.7 CWND
+	\item Alternative a Fast retransmit:
+	      \begin{itemize}
+		      \item CUBIC:  simile  a fast retransmit su RTT bassi. invece che dimezzare CWND fa CWND = 0.7 CWND
 
-    \item BRR: protocollo serer side di google, sfrutta concetto collo di bottiglia
-    \item QUIC: emula TCP + TLS usando UDP, ma evita di effettuare doppio handshake
-  \end{itemize}
+		      \item BRR: protocollo serer side di google, sfrutta concetto collo di bottiglia
+		      \item QUIC: emula TCP + TLS usando UDP, ma evita di effettuare doppio handshake
+	      \end{itemize}
 \end{itemize}
 
 \subsection{Rete}
 \begin{itemize}
-  \item Funzione piano dati:  decide come fare \textit{forwarding} localmente, ossia come passare un pacchetto da una porta di ingresso ad una di uscita
-  \item Funzioni piano controllo: insieme di algoritmi che determinano percorso da prendere (\textit{routing})
-  \item \textit{Terminatore di linea - protocollo data link (ethernet) - buffer di inoltro - sistema di commutazione}
-  \item Sistemi di commutazione: 
-    \begin{itemize}
-      \item A memeoria: leggo e scrivo su memoria, 2 accessi a sistema
-      \item A bus: uno per volta sul bus condiviso
-      \item A matrice: più pacchetti alla volta
-    \end{itemize}
-  \item HOL: \textit{Head of line block}, quando il nodo non calcola abbastanza in fretta
-  \item Porta di uscita: 
-    \begin{itemize}
-      \item FIFO or \textit{priority} scheduling
-      \item Pacchetti scartati con \textit{tail drop - priority drop - random drop}
-    \end{itemize}
-  \item Frammentazione 
-    \begin{itemize}
-      \item Flags M \textit{more fragments} e D \textit{do not fragment}
-      \item Non usata per ragioni di sicurezza (Attacchi Ddos o overlapping fragments)
-    \end{itemize}
-  \item Registrar: autorita che possono assegnare indirizzi ip e nomi id dominio
-  \item Indirizzi ip: 
-    \begin{itemize}
-      \item \textit{Subnet mask, default gateaway}
-      \item NAT: apparecchio che associa indirizzo ip privato ad uno pubblico
-        \begin{itemize}
-          \item Rompe encapsulation livelli (modifica porte livello trasporto e ip livello rete)
-          \item Per comunicare a server serve port forwarding
-        \end{itemize}
-      \item Indirizzi: 
-        \begin{itemize}
-          \item Privati: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
-          \item Indirizzi di rete: la parte dopo la subnet mask è tutta zero
-          \item Indirizzo broadcast: la parte dopo la subnet mask è tutta uni
-          \item Broadcast locale: tutti uni (il pacchetto non va fuori dalla rete locale)
-          \item Indirizzo "questo computer": tutti zeri
-          \item Indirizzi loopback: 127.0.0.0/8 per testare app di rete
-          \item Indirizzi multicast: iniziano con 1110, come broadcast
-          \item Link local: 169.254.0.0/16, vengono assegnati in modo random a disposivi ai quali non è possibile assegnare ip
-        \end{itemize}
-    \end{itemize}
-  \item ARP 
-    \begin{itemize}
-      \item Serve per scoprire un indirizzo MAC (HADDR) associato ad un indirizzo ip (PADDR)
-      \item I messaggi arp vengono trasmessi in broadcast e solo il dispositivo di interesse risponde
-      \item Arp caching: le risponde arp vengono salvate 30 sec e sovrascritte dalle più recenti
-    \end{itemize}
-  \item ICMP: \textit{internet control message protocol} 
-    \begin{itemize}
-      \item Serve per recuperare informazioni e segnalare errori
-      \item Ping: viene sfruttato il meccanismo id \textit{echo reply}
-      \item Traceroute: vengono mandati pacchetti con TTL incrementali. Ogni volta che il pacchetto scare viene inviata risposta
-    \end{itemize}
-  \item DHCP: \textit{dynamic host configuration protocol}
-    \begin{itemize}
-      \item DHCP discover
-      \item DHCP offer
-      \item Client accetta richiesta
-      \item DHCP ack
-      \item Utilizzo indirizzi broadcast 255.255.255.255 perchè client non ha ancora ip
-      \item Transaction id inclusa in messaggio per sapere a chi è riferito broadcast
-      \item Usa UDP (connessione impossibile vista assenza di ip)
-      \item Se non esiste serve DHCP, allora si assegnano indirizzi link-local, e ogni volta si manda messaggio arp. Se nessuno risponde vuol dire che ip non è utilizzato 
-    \end{itemize}
+	\item Funzione piano dati:  decide come fare \textit{forwarding} localmente, ossia come passare un pacchetto da una porta di ingresso ad una di uscita
+	\item Funzioni piano controllo: insieme di algoritmi che determinano percorso da prendere (\textit{routing})
+	\item \textit{Terminatore di linea - protocollo data link (ethernet) - buffer di inoltro - sistema di commutazione}
+	\item Sistemi di commutazione:
+	      \begin{itemize}
+		      \item A memeoria: leggo e scrivo su memoria, 2 accessi a sistema
+		      \item A bus: uno per volta sul bus condiviso
+		      \item A matrice: più pacchetti alla volta
+	      \end{itemize}
+	\item HOL: \textit{Head of line block}, quando il nodo non calcola abbastanza in fretta
+	\item Porta di uscita:
+	      \begin{itemize}
+		      \item FIFO or \textit{priority} scheduling
+		      \item Pacchetti scartati con \textit{tail drop - priority drop - random drop}
+	      \end{itemize}
+	\item Frammentazione
+	      \begin{itemize}
+		      \item Flags M \textit{more fragments} e D \textit{do not fragment}
+		      \item Non usata per ragioni di sicurezza (Attacchi Ddos o overlapping fragments)
+	      \end{itemize}
+	\item Registrar: autorita che possono assegnare indirizzi ip e nomi id dominio
+	\item Indirizzi ip:
+	      \begin{itemize}
+		      \item \textit{Subnet mask, default gateaway}
+		      \item NAT: apparecchio che associa indirizzo ip privato ad uno pubblico
+		            \begin{itemize}
+			            \item Rompe encapsulation livelli (modifica porte livello trasporto e ip livello rete)
+			            \item Per comunicare a server serve port forwarding
+		            \end{itemize}
+		      \item Indirizzi:
+		            \begin{itemize}
+			            \item Privati: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+			            \item Indirizzi di rete: la parte dopo la subnet mask è tutta zero
+			            \item Indirizzo broadcast: la parte dopo la subnet mask è tutta uni
+			            \item Broadcast locale: tutti uni (il pacchetto non va fuori dalla rete locale)
+			            \item Indirizzo "questo computer": tutti zeri
+			            \item Indirizzi loopback: 127.0.0.0/8 per testare app di rete
+			            \item Indirizzi multicast: iniziano con 1110, come broadcast
+			            \item Link local: 169.254.0.0/16, vengono assegnati in modo random a disposivi ai quali non è possibile assegnare ip
+		            \end{itemize}
+	      \end{itemize}
+	\item ARP
+	      \begin{itemize}
+		      \item Serve per scoprire un indirizzo MAC (HADDR) associato ad un indirizzo ip (PADDR)
+		      \item I messaggi arp vengono trasmessi in broadcast e solo il dispositivo di interesse risponde
+		      \item Arp caching: le risponde arp vengono salvate 30 sec e sovrascritte dalle più recenti
+	      \end{itemize}
+	\item ICMP: \textit{internet control message protocol}
+	      \begin{itemize}
+		      \item Serve per recuperare informazioni e segnalare errori
+		      \item Ping: viene sfruttato il meccanismo id \textit{echo reply}
+		      \item Traceroute: vengono mandati pacchetti con TTL incrementali. Ogni volta che il pacchetto scare viene inviata risposta
+	      \end{itemize}
+	\item DHCP: \textit{dynamic host configuration protocol}
+	      \begin{itemize}
+		      \item DHCP discover
+		      \item DHCP offer
+		      \item Client accetta richiesta
+		      \item DHCP ack
+		      \item Utilizzo indirizzi broadcast 255.255.255.255 perchè client non ha ancora ip
+		      \item Transaction id inclusa in messaggio per sapere a chi è riferito broadcast
+		      \item Usa UDP (connessione impossibile vista assenza di ip)
+		      \item Se non esiste serve DHCP, allora si assegnano indirizzi link-local, e ogni volta si manda messaggio arp. Se nessuno risponde vuol dire che ip non è utilizzato
+	      \end{itemize}
 \end{itemize}
 \subsubsection*{Protocolli di routing}
 \begin{itemize}
-  \item OSPF: sfrutta \textit{multicast} 224.0.0.5
-    \begin{itemize}
-      \item \textit{Hello - exchange - flooding} verifica router adiacenti - comunica ai ruoter adiacenti stato rete - comunica a tutti i router ricorsivamente stato rete
-      \item Dijkstra
-      \item Gerarchia: rete \textit{dorsale} e \textit{reti di area}
-    \end{itemize}
-    \item Dijkstra - \textit{link state}
-    \item Bellman ford - \textit{distance vector}
-    \item Count to infinity: quando un collegamento viene modificato si viene fatti rimbalzare fra due nodi all'infinito. Soluzioni: 
-      \begin{itemize}
-        \item Settare \textit{max hop} (di solito 15)
-        \item Split horizon - X non manda a Y le rotte apprese da Y stesso
-        \item Poison reverse - se X passa da Y per arrivare a Z, allora X informa Y che la sua distanza da Z è $ \infty  $
-      \end{itemize}
-    \item RIP: \textit{UDP, porta 520, muticast su 224.0.0.9, processo routed, usa poisoned reverse}, simile a Distance vector. Quando un nodo non riceve aggiornamenti per 180 il link si da per rotto
+	\item OSPF: sfrutta \textit{multicast} 224.0.0.5
+	      \begin{itemize}
+		      \item \textit{Hello - exchange - flooding} verifica router adiacenti - comunica ai ruoter adiacenti stato rete - comunica a tutti i router ricorsivamente stato rete
+		      \item Dijkstra
+		      \item Gerarchia: rete \textit{dorsale} e \textit{reti di area}
+	      \end{itemize}
+	\item Dijkstra - \textit{link state}
+	\item Bellman ford - \textit{distance vector}
+	\item Count to infinity: quando un collegamento viene modificato si viene fatti rimbalzare fra due nodi all'infinito. Soluzioni:
+	      \begin{itemize}
+		      \item Settare \textit{max hop} (di solito 15)
+		      \item Split horizon - X non manda a Y le rotte apprese da Y stesso
+		      \item Poison reverse - se X passa da Y per arrivare a Z, allora X informa Y che la sua distanza da Z è $ \infty  $
+	      \end{itemize}
+	\item RIP: \textit{UDP, porta 520, muticast su 224.0.0.9, processo routed, usa poisoned reverse}, simile a Distance vector. Quando un nodo non riceve aggiornamenti per 180 il link si da per rotto
 \end{itemize}
 \subsection{BGP}
 \begin{itemize}
-  \item \textit{BPG speakers} si inviano \textit{path vectors} con destinazione, next hop e path
-  \item Connessione client-provider, viceversa o peer to peer
-  \item \textit{Ingress policies - egress policies}, filtrano in entrata e uscita. I persorsi accettati sono salvati rispettivamente in tabelle ADJ\_RIB\_IN e ADJ\_RIB\_OUT
-  \item Messaggi Open, Notification, KeepAlive e Update.
-    \begin{itemize}
-      \item Open apre connessione. Connessione è effettivamente aperta dopo ever ricevuto keepalive
-      \item Notification: informa BPG speaker di un errore
-      \item Update: \textit{Addittive o sottrattive (withdraw)}: aggiungono o rimuovono rotte
-    \end{itemize}
+	\item \textit{BPG speakers} si inviano \textit{path vectors} con destinazione, next hop e path
+	\item Connessione client-provider, viceversa o peer to peer
+	\item \textit{Ingress policies - egress policies}, filtrano in entrata e uscita. I persorsi accettati sono salvati rispettivamente in tabelle ADJ\_RIB\_IN e ADJ\_RIB\_OUT
+	\item Messaggi Open, Notification, KeepAlive e Update.
+	      \begin{itemize}
+		      \item Open apre connessione. Connessione è effettivamente aperta dopo ever ricevuto keepalive
+		      \item Notification: informa BPG speaker di un errore
+		      \item Update: \textit{Addittive o sottrattive (withdraw)}: aggiungono o rimuovono rotte
+	      \end{itemize}
 \end{itemize}
 \subsection{Livello data link}
 \begin{itemize}
-  \item Servizi di \textit{consegna affidabile - controllo flusso - rilevamento e correzione degli errori}
-  \item Collegamento \textit{half duplex o full duplex}, rispettivamente uni/bi direzionale
-  \item Correzione errori: 
-    \begin{itemize}
-      \item Bit di parità unidirezionale: sgama errori, bidirezionale permette di correggerli
-      \item Ridondanza e interleaving: ogni bit viene ridondato e riordinato in maniera casuale. All'arrivo i bit vengono rimessi nell'ordine originale e per ogni gruppo si sceglie il bit ripetuto di più
-      \item 
-    \end{itemize}
-  \item TDMA, FDMA, CDMA: in quest'ultimo viene assegnato un \textit{chip}, e viene inviato lo xor fra dati e chip. Al destinatario viene ancora fatto xor. Se il dato non corrisponde allo xor giusto si ottiene solo rumore
-  \item Slotted ALOHA: ogni trasmettitore è sincronizzato e può trasmettere solo 1 alla volta. Avendo $ N $ trasmettitori il numero massimo di pacchetti è 
-    \[
-      N * p\left(p-1\right)^{N-1}
-    \]
-    il valore di $ p $ che massimizza l'espressione sopra è $ \frac{1}{n} $ e il limite per $ N \to  \infty  $ è : 
-    \[
-      \lim_{n \to \infty} \left(1 - \frac{1}{N}\right)^{ N-1} = \frac{1}{e} \approx 0.36
-    \]
-    Se ALOHA non fosse slotted, la trasmissione massima sarebbe circa $ \frac{1}{2e} \approx 0.18 $, ossia la metà dello slotted
-  \item CSMA p-persistente (\textit{carrier sense multiple acces}): quando canale occupato aspetta fino a quando non è libero e poi con probabilità $ p $ trasmette segnale 
-      \begin{itemize}
-        \item Finestra di vulnerabilità: periodo in cui non è certo che nodo sia libero o occupato. Tempo di propagazione + tempo necessario per rilevare collisione
-        \item Efficace quando tempo di propagazione è molto inferiore a tempo trasmissione
-        \item In reti cablate: CSMA/CD quando rilevo collisione invio subito segnale 
-        \item In reti wireless: CSMA/CA: si procede a tentoni, riducendo $ p $(probabilità collisione) in base a proprietà rete
-      \end{itemize}
-    \item Protocolli a turni: 
-      \begin{itemize}
-        \item Polling: \textit{master} invia poll a \textit{slave} e slave risponde con dati. Problema SPOF e inefficiente
-        \item Token: onferisce abilità di trasmettere e viene passato fra host. Stessi problemi polling
-        \item Ethernet: 
-          \begin{itemize}
-            \item Inizialmente \textit{bus} e \textit{vampirizzazione} con \textit{terminatori}
-            \item Poi \textit{HUB} con \textit{switch}
-            \item Doppino incrociato con connettore \textit{rj45}
-            \item No connesso no sicuro no ack
-            \item Protocollo MAC CSMA/CD unslotted
-            \item Ogni collisione si sceglie valore di backof fra 0 e $ \left(2^{k}-1\right)T $
-              con $ k \le 7 $ e $ T =$ tempo per trasmettere 512 bit
-          \end{itemize}
-      \end{itemize}
-    \item Domini: 
-      \begin{itemize}
-        \item Di collisione: hub $ \rightarrow  $1, switch $ \rightarrow  $ tanti quante le porte
-        \item Di broadcast: mappatura 1:1 con domini di collisione
-      \end{itemize}
-    \item Switch:
-      \begin{itemize}
-        \item \textit{backward learning}, aggiorna route corrispondente a mac sorgente
-        \item Se pacchetto ha dest === src viene scartato
-        \item Problema dei loop, finisce in flooding infinito, risolto da STP
-      \end{itemize}
-    \item STP: \textit{spanning tree protocol}
-      \begin{itemize}
-        \item Struttura logica è spanning tree $ \rightarrow  $ no cicli. Struttura fisica ha loops (ridondata)
-        \item Ogni switch è identificato da 16 bits (impostati da amministratore rete) + 48 bits MAC address
-        \item Pacchetti di controllo \textit{BPDU}
-        \item Ogni porta può essere: \textit{bloccata, designata, radice}
-      \end{itemize}
-    \item LAN: per performance o separazione degli intenti 
-      \begin{itemize}
-        \item Impossibile identificare gruppi $ \rightarrow  $ introduzione nuovo protocollo ethernet
-        \item Campo \textit{VLAN identifier} in header
-          \item Se host non supporta vlan no problem: switch manipola headers
-          \item Se switch non supporta vlan problemi: o scarta frame, o inoltra senza considerare vlan
-      \end{itemize}
-    \item Reti wireless: 
-      \begin{itemize}
-        \item Ad hoc (tipo bluetooth) o a infrastruttura (tipo wifi)
-        \item \textit{(ESS (BSS AP)(BSS AP))}
-          \begin{itemize}
-            \item WLAN: \textit{Wireless Local Area Network}
-            \item Extended service point
-            \item Basic service point
-            \item Acces point
-          \end{itemize}
-        \item Standard wifi 
-          \begin{itemize}
-            \item 2.4 ghz divisi in 11 canali
-            \item Associazione passiva o attiva
-            \item Invio \textit{beacon} con SSID, indirizzo MAC
-            \item Assegnazione ip sottorete tramite DHCP
-              \item Attenuazione del segnale viaggia come $ r^2  $
-              \item Non può ricevere e inviare contemporaneamente (autointerferenze)
-          \end{itemize}
-      \end{itemize}
+	\item Servizi di \textit{consegna affidabile - controllo flusso - rilevamento e correzione degli errori}
+	\item Collegamento \textit{half duplex o full duplex}, rispettivamente uni/bi direzionale
+	\item Correzione errori:
+	      \begin{itemize}
+		      \item Bit di parità unidirezionale: sgama errori, bidirezionale permette di correggerli
+		      \item Ridondanza e interleaving: ogni bit viene ridondato e riordinato in maniera casuale. All'arrivo i bit vengono rimessi nell'ordine originale e per ogni gruppo si sceglie il bit ripetuto di più
+		      \item
+	      \end{itemize}
+	\item TDMA, FDMA, CDMA: in quest'ultimo viene assegnato un \textit{chip}, e viene inviato lo xor fra dati e chip. Al destinatario viene ancora fatto xor. Se il dato non corrisponde allo xor giusto si ottiene solo rumore
+	\item Slotted ALOHA: ogni trasmettitore è sincronizzato e può trasmettere solo 1 alla volta. Avendo $ N $ trasmettitori il numero massimo di pacchetti è
+	      \[
+		      N * p\left(p-1\right)^{N-1}
+	      \]
+	      il valore di $ p $ che massimizza l'espressione sopra è $ \frac{1}{n} $ e il limite per $ N \to  \infty  $ è :
+	      \[
+		      \lim_{n \to \infty} \left(1 - \frac{1}{N}\right)^{ N-1} = \frac{1}{e} \approx 0.36
+	      \]
+	      Se ALOHA non fosse slotted, la trasmissione massima sarebbe circa $ \frac{1}{2e} \approx 0.18 $, ossia la metà dello slotted
+	\item CSMA p-persistente (\textit{carrier sense multiple acces}): quando canale occupato aspetta fino a quando non è libero e poi con probabilità $ p $ trasmette segnale
+	      \begin{itemize}
+		      \item Finestra di vulnerabilità: periodo in cui non è certo che nodo sia libero o occupato. Tempo di propagazione + tempo necessario per rilevare collisione
+		      \item Efficace quando tempo di propagazione è molto inferiore a tempo trasmissione
+		      \item In reti cablate: CSMA/CD quando rilevo collisione invio subito segnale
+		      \item In reti wireless: CSMA/CA: si procede a tentoni, riducendo $ p $(probabilità collisione) in base a proprietà rete
+	      \end{itemize}
+	\item Protocolli a turni:
+	      \begin{itemize}
+		      \item Polling: \textit{master} invia poll a \textit{slave} e slave risponde con dati. Problema SPOF e inefficiente
+		      \item Token: onferisce abilità di trasmettere e viene passato fra host. Stessi problemi polling
+		      \item Ethernet:
+		            \begin{itemize}
+			            \item Inizialmente \textit{bus} e \textit{vampirizzazione} con \textit{terminatori}
+			            \item Poi \textit{HUB} con \textit{switch}
+			            \item Doppino incrociato con connettore \textit{rj45}
+			            \item No connesso no sicuro no ack
+			            \item Protocollo MAC CSMA/CD unslotted
+			            \item Ogni collisione si sceglie valore di backof fra 0 e $ \left(2^{k}-1\right)T $
+			                  con $ k \le 7 $ e $ T =$ tempo per trasmettere 512 bit
+		            \end{itemize}
+	      \end{itemize}
+	\item Domini:
+	      \begin{itemize}
+		      \item Di collisione: hub $ \rightarrow  $1, switch $ \rightarrow  $ tanti quante le porte
+		      \item Di broadcast: mappatura 1:1 con domini di collisione
+	      \end{itemize}
+	\item Switch:
+	      \begin{itemize}
+		      \item \textit{backward learning}, aggiorna route corrispondente a mac sorgente
+		      \item Se pacchetto ha dest === src viene scartato
+		      \item Problema dei loop, finisce in flooding infinito, risolto da STP
+	      \end{itemize}
+	\item STP: \textit{spanning tree protocol}
+	      \begin{itemize}
+		      \item Struttura logica è spanning tree $ \rightarrow  $ no cicli. Struttura fisica ha loops (ridondata)
+		      \item Ogni switch è identificato da 16 bits (impostati da amministratore rete) + 48 bits MAC address
+		      \item Pacchetti di controllo \textit{BPDU}
+		      \item Ogni porta può essere: \textit{bloccata, designata, radice}
+	      \end{itemize}
+	\item LAN: per performance o separazione degli intenti
+	      \begin{itemize}
+		      \item Impossibile identificare gruppi $ \rightarrow  $ introduzione nuovo protocollo ethernet
+		      \item Campo \textit{VLAN identifier} in header
+		      \item Se host non supporta vlan no problem: switch manipola headers
+		      \item Se switch non supporta vlan problemi: o scarta frame, o inoltra senza considerare vlan
+	      \end{itemize}
+	\item Reti wireless:
+	      \begin{itemize}
+		      \item Ad hoc (tipo bluetooth) o a infrastruttura (tipo wifi)
+		      \item \textit{(ESS (BSS AP)(BSS AP))}
+		            \begin{itemize}
+			            \item WLAN: \textit{Wireless Local Area Network}
+			            \item Extended service point
+			            \item Basic service point
+			            \item Acces point
+		            \end{itemize}
+		      \item Standard wifi
+		            \begin{itemize}
+			            \item 2.4 ghz divisi in 11 canali
+			            \item Associazione passiva o attiva
+			            \item Invio \textit{beacon} con SSID, indirizzo MAC
+			            \item Assegnazione ip sottorete tramite DHCP
+			            \item Attenuazione del segnale viaggia come $ r^2  $
+			            \item Non può ricevere e inviare contemporaneamente (autointerferenze)
+		            \end{itemize}
+	      \end{itemize}
 \end{itemize}
 \end{document}
